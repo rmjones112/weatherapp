@@ -8,18 +8,23 @@
     <title>Weather</title>
 </head>
 <body>
+    <form class="submit-weather">
+        <input type="text" class="weather-val">
+        <label for="">City</label>
+        <button class="submit">Submit</button>
+    </form>
     <div class = "location">
-        <h1 class= "location-time">Timezone</h1>
+        <h1 class= "location-timezone"></h1>
         <canvas class ="icon" width="128" height="128"></canvas>
     </div>
     <div class="temperature">
         <div class= "degree-section">
-<h2 class = "temperature-degree">34 </h2>
+<h2 class = "temperature-degree"></h2>
 <span>F</span>
 </div>
-<div class= "temperature-description"> weather description </div>
+<div class= "temperature-description"></div>
     </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="skycons.js"></script>
 <script src="weather.js"></script>
 </body>
