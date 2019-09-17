@@ -22,16 +22,28 @@ window.addEventListener('load',()=> {
             .then(response => {
                 return response.json();
             })
-            .then(date => {
+            .then(data => {
                 //it says there is a promise error here that I don't see 
                 console.log(data);
-                const {temperature, summary } = data.currently;
+                const {temperature, summary, icon } = data.currently;
                 //set DOM elements from API
                 temperatureDegree.textContent = temperature;
                 temperatureDescription.textContent = summary;
                 locationTimezone.textContent = data.timezone;
+                //set Icon
+                setIcons(icon,document.querySelector(`.icon`));
             });
         
         });
+    }
+    //definded function and added icon and icon id
+    function setIcons(icon, iconId){
+        const skycons = new Skycons({color:"white"});
+        //should look for everyline and replace w underscore for skysons formatting
+        const currentIcon = icon.replace(/-/g,"_").toUpperCase();
+        //animates 
+        skycons.play();
+        return skycons.set(iconId, skycons[currentIcon]);
+
     }
     });
