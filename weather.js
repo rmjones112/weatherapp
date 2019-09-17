@@ -23,17 +23,20 @@ function getWeatherWithCoords(coordinates) {
                 temperatureDescription.textContent = summary;
                 locationTimezone.textContent = data.timezone;
                 //set Icon
-                setIcons(icon,document.querySelector(`.icon`));
+                console.log(icon);
+                setIcons(icon,'icon');
             });
         
     //definded function and added icon and icon id
     function setIcons(icon, iconId){
         const skycons = new Skycons({color:"white"});
+        console.log(skycons, icon)
         //should look for everyline and replace w underscore for skysons formatting
         const currentIcon = icon.replace(/-/g,"_").toUpperCase();
         //animates 
+        console.log('current icon', currentIcon,iconId);
         skycons.play();
-        return skycons.set(iconId, skycons[currentIcon]);
+        return skycons.add(document.getElementById(iconId), Skycons[currentIcon]);
 
     }
     };
